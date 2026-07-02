@@ -50,7 +50,7 @@
                 linear-gradient(to bottom, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.98) 100%),
                 url('images/mesacateringplaya.jpg'),
                 url('images/fondomandala.jpg');
-            background-size: cover, cover, 300px;
+            background-size: cover, cover, 300px; 
             background-position: center, center, center;
             background-attachment: fixed, fixed, fixed;
             background-repeat: no-repeat, no-repeat, repeat;
@@ -60,19 +60,19 @@
         body::before, body::after {
             content: '';
             position: fixed;
-            width: 630px;  /* Ajustamos el tamaño a 300px para que sea más discreto */
-            height: 630px;
+            width: 300px;
+            height: 300px;
             background-image: url('images/fondomandala.jpg');
             background-size: contain;
             background-repeat: no-repeat;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.3; /* Le bajamos un poco la opacidad para que no compita con el texto */
+            opacity: 0.3;
         }
         body::before { top: -50px; left: -50px; }
         body::after { bottom: -50px; right: -50px; transform: rotate(180deg); }
 
-        /* Estilos comunes para tarjetas */
+        /* Estilos comunes para tarjetas (Menú, Promos, Eventos) */
         .bagheera-card {
             background: linear-gradient(145deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.95) 100%);
             border: 1px solid rgba(220,179,96,0.3);
@@ -148,8 +148,7 @@
                 
                 <!-- Logo -->
                 <a href="#" onclick="switchView('inicio')" class="flex items-center gap-3 cursor-pointer">
-                    <!-- Placeholder con color acorde al estilo -->
-                    <img src="images/logonegro.jpg" alt="Logo El Buen Bagheera" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_10px_rgba(220,179,96,0.3)]">
+                    <img src="https://placehold.co/100x100/080808/dcb360?text=Logo" alt="Logo El Buen Bagheera" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_10px_rgba(220,179,96,0.3)]">
                     <div>
                         <span class="text-white text-[10px] md:text-xs font-semibold block mb-[-4px] tracking-widest uppercase">el buen</span>
                         <h1 class="text-xl md:text-2xl font-bold text-white font-cinzel tracking-wider">
@@ -171,7 +170,7 @@
                     Pedir Ahora
                 </a>
                 
-                <!-- Botón Volver (solo visible en móvil y cuando no es inicio) -->
+                <!-- Botón Volver -->
                 <button id="btn-volver" onclick="switchView('inicio')" class="md:hidden flex items-center gap-1 text-bagheera-gold text-xs font-bold uppercase hidden">
                     &larr; Volver
                 </button>
@@ -190,7 +189,6 @@
             <!-- Hero Banner -->
             <div class="relative py-20 md:py-32 text-center border-b border-bagheera-gold/20 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <!-- Imagen de Unsplash para evitar error 404 -->
                     <img src="images/mesacatering.jpg" alt="Shawarmas" class="w-full h-full object-cover opacity-35">
                     <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black"></div>
                 </div>
@@ -229,17 +227,13 @@
                     <div class="w-24 h-px bg-bagheera-gold mx-auto mt-4 opacity-50"></div>
                 </div>
 
-                <!-- Contenedor del Carrusel -->
                 <div class="relative group">
-                    <!-- Botón Izquierda -->
                     <button onclick="scrollCarousel(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 z-20 bg-bagheera-gold text-black p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-lg hidden md:block hover:scale-110">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
 
-                    <!-- Carrusel de Accesos Rápidos -->
                     <div id="quick-access-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-8 pt-4 hide-scrollbar scroll-smooth">
                         
-                        <!-- Tarjeta Promos -->
                         <div onclick="switchView('promos')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-red/50 bg-[#0a0a0a] hover:border-bagheera-red transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(227,24,55,0.15)] hover:shadow-[0_0_25px_rgba(227,24,55,0.4)]">
                             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1529144415895-6aaf8be872fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
@@ -249,7 +243,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta Menú -->
                         <div onclick="switchView('menu')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
                             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
@@ -259,7 +252,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta Eventos -->
                         <div onclick="switchView('eventos')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
                             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
@@ -269,7 +261,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta Reseñas (NUEVA) -->
                         <div onclick="switchView('testimonios')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
                             <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
@@ -278,10 +269,8 @@
                                 <span class="mt-2 inline-block text-bagheera-gold font-bold tracking-widest text-sm border-b border-bagheera-gold pb-1 group-hover:pr-2 transition-all">VER OPINIONES &rarr;</span>
                             </div>
                         </div>
-
                     </div>
 
-                    <!-- Botón Derecha -->
                     <button onclick="scrollCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 z-20 bg-bagheera-gold text-black p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-lg hidden md:block hover:scale-110">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
@@ -301,7 +290,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-                    <!-- FRITOS -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-gold">
                         <h2 class="text-3xl font-script text-bagheera-gold mb-6 border-b border-gray-800 pb-4">Fritos</h2>
                         <div class="space-y-6">
@@ -337,7 +325,6 @@
                         </div>
                     </div>
 
-                    <!-- ENSALADAS -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-gold">
                         <h2 class="text-3xl font-script text-bagheera-gold mb-2">Ensaladas</h2>
                         <p class="text-xs text-bagheera-gold/70 tracking-widest uppercase mb-6 border-b border-gray-800 pb-4">(Incluyen salsas y pan)</p>
@@ -366,7 +353,6 @@
                         </div>
                     </div>
 
-                    <!-- SHAWARMAS -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-red shadow-[0_0_20px_rgba(227,24,55,0.1)] lg:col-span-2 max-w-3xl mx-auto w-full">
                         <h2 class="text-3xl font-script text-bagheera-gold mb-2 text-center">Shawarmas</h2>
                         <p class="text-xs text-bagheera-gold/70 tracking-widest uppercase mb-6 border-b border-gray-800 pb-4 text-center">(Incluyen tabule, hummus, salsas, lechuga, cebolla)</p>
@@ -417,7 +403,6 @@
                 </div>
 
                 <div class="space-y-6">
-                    <!-- Promo 1 -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
                             <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo Bagheera</h2>
@@ -430,7 +415,6 @@
                         <p class="text-gray-500 text-xs font-semibold tracking-wider">PROTEÍNAS: POLLO, CARNE O FALÁFEL</p>
                     </div>
 
-                    <!-- Promo 2 -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
                             <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo "Uno"</h2>
@@ -442,7 +426,6 @@
                         </p>
                     </div>
 
-                    <!-- Promo Dúo -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8 relative overflow-hidden border-t-4 border-t-bagheera-gold">
                         <div class="absolute top-0 right-0 bg-bagheera-gold text-black text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Más Pedida</div>
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4 mt-2">
@@ -455,7 +438,6 @@
                         </p>
                     </div>
 
-                    <!-- Promo VIP -->
                     <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-red">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
                             <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo "Familiar"</h2>
@@ -495,7 +477,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         
                         <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4">
-                            <!-- Foto Mini Shawarmas (Reemplazó al emoji) -->
+                            <!-- Foto Mini Shawarmas -->
                             <img src="images/shawarmacanape.jpg" alt="Mini Shawarmas" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-bagheera-gold/50 shadow-[0_0_10px_rgba(220,179,96,0.2)]">
                             <div>
                                 <h3 class="text-lg font-bold text-bagheera-gold">Mini Shawarmas</h3>
@@ -504,7 +486,7 @@
                         </div>
 
                         <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4">
-                            <!-- Foto Falafel (Reemplazó al emoji) -->
+                            <!-- Foto Falafel -->
                             <img src="images/falafel.jpg" alt="Falafel Crocante" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-bagheera-gold/50 shadow-[0_0_10px_rgba(220,179,96,0.2)]">
                             <div>
                                 <h3 class="text-lg font-bold text-bagheera-gold">Falafel Crocante</h3>
@@ -521,6 +503,7 @@
 
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- ============================================== -->
@@ -531,16 +514,13 @@
                 <div class="text-center mb-16">
                     <h1 class="text-5xl md:text-7xl font-script text-bagheera-gold drop-shadow-lg mb-6">La Familia Bagheera</h1>
                     
-                    <!-- Widget de Valoración General (Estrellas) -->
                     <div class="flex flex-col items-center justify-center gap-2 mb-4 bg-black/40 inline-block p-6 rounded-2xl border border-bagheera-gold/20 backdrop-blur-sm">
                         <div class="flex items-center gap-1 text-bagheera-gold">
-                            <!-- 4 Estrellas completas SVG -->
                             <svg class="w-8 h-8 md:w-10 md:h-10 drop-shadow-[0_0_8px_rgba(220,179,96,0.5)]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             <svg class="w-8 h-8 md:w-10 md:h-10 drop-shadow-[0_0_8px_rgba(220,179,96,0.5)]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             <svg class="w-8 h-8 md:w-10 md:h-10 drop-shadow-[0_0_8px_rgba(220,179,96,0.5)]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             <svg class="w-8 h-8 md:w-10 md:h-10 drop-shadow-[0_0_8px_rgba(220,179,96,0.5)]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             
-                            <!-- Media estrella (Truco con CSS para mostrarla a la mitad) -->
                             <div class="relative inline-block w-8 h-8 md:w-10 md:h-10">
                                 <svg class="absolute top-0 left-0 text-gray-700 w-full h-full" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 <div class="absolute top-0 left-0 overflow-hidden w-[60%] h-full text-bagheera-gold drop-shadow-[0_0_8px_rgba(220,179,96,0.5)]">
@@ -554,10 +534,8 @@
                     <div class="w-24 h-px bg-bagheera-gold mx-auto mt-6 opacity-50"></div>
                 </div>
 
-                <!-- Grilla Masonry para los Testimonios (Se ajusta sola) -->
                 <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                     
-                    <!-- Tarjeta 1: Review en Texto -->
                     <div class="bagheera-card p-6 rounded-2xl break-inside-avoid">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-full bg-bagheera-gold text-black flex items-center justify-center font-bold text-xl">M</div>
@@ -570,7 +548,6 @@
                         <div class="text-bagheera-gold text-sm tracking-widest">★★★★★</div>
                     </div>
 
-                    <!-- Tarjeta 2: Simulación de WhatsApp (Pantallazo) -->
                     <div class="bagheera-card p-6 rounded-2xl border-t-4 border-t-[#25D366] break-inside-avoid shadow-[0_0_15px_rgba(37,211,102,0.1)]">
                         <div class="flex items-center justify-between mb-4">
                             <h4 class="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2">
@@ -578,19 +555,16 @@
                                 Mensaje de Cliente
                             </h4>
                         </div>
-                        <!-- Burbuja Cliente -->
                         <div class="bg-[#0b141a] p-3 rounded-lg rounded-tl-none relative mb-2 w-11/12 border border-gray-800">
                             <p class="text-[#e9edef] text-sm">Hola!! Acaba de llegar el pedido. Demasiado rico todo, mi familia quedó fascinada 😍🤤 Gracias!!</p>
                             <span class="text-[#8696a0] text-[10px] block text-right mt-1">20:45 <span class="text-[#53bdeb]">✓✓</span></span>
                         </div>
-                        <!-- Burbuja Bagheera -->
                         <div class="bg-[#005c4b] p-3 rounded-lg rounded-tr-none relative ml-auto w-10/12 border border-[#005c4b]">
                             <p class="text-[#e9edef] text-sm">¡Qué alegría leer eso! Muchas gracias por preferirnos. ❤️</p>
                             <span class="text-[#8696a0] text-[10px] block text-right mt-1">20:47 <span class="text-[#53bdeb]">✓✓</span></span>
                         </div>
                     </div>
 
-                    <!-- Tarjeta 3: Foto de Entrega -->
                     <div class="bagheera-card rounded-2xl overflow-hidden break-inside-avoid border-t-4 border-t-bagheera-red">
                         <div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=800');"></div>
                         <div class="p-5">
@@ -602,7 +576,6 @@
                         </div>
                     </div>
 
-                    <!-- Tarjeta 4: Review Texto Corto -->
                     <div class="bagheera-card p-6 rounded-2xl break-inside-avoid">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-full bg-bagheera-red text-white flex items-center justify-center font-bold text-xl">C</div>
@@ -614,7 +587,6 @@
                         <div class="text-bagheera-gold text-sm tracking-widest">★★★★<span class="text-gray-600">★</span></div>
                     </div>
 
-                    <!-- Tarjeta 5: Foto de Evento / Catering -->
                     <div class="bagheera-card rounded-2xl overflow-hidden break-inside-avoid border-t-4 border-t-bagheera-gold">
                         <div class="h-56 w-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1529144415895-6aaf8be872fb?q=80&w=800');"></div>
                         <div class="p-5 bg-gradient-to-t from-black via-black/90 to-transparent mt-[-60px] relative z-10">
@@ -623,7 +595,6 @@
                         </div>
                     </div>
                     
-                    <!-- Tarjeta 6: Review Texto -->
                     <div class="bagheera-card p-6 rounded-2xl break-inside-avoid">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-full bg-gray-700 text-white flex items-center justify-center font-bold text-xl">A</div>
@@ -641,11 +612,10 @@
 
     </main>
 
-    <!-- FOOTER (Visible en todas las vistas) -->
+    <!-- FOOTER -->
     <footer class="bg-[#050505] border-t border-bagheera-gold/20 pt-16 pb-32">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
             <div class="text-center md:text-left flex flex-col md:flex-row items-center gap-4">
-                <!-- Placeholder para el Footer -->
                 <img src="https://placehold.co/150x150/080808/dcb360?text=Logo" alt="Logo" class="w-20 h-20 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_15px_rgba(220,179,96,0.2)]">
                 <div>
                     <h4 class="text-3xl font-bold text-white font-cinzel tracking-wider">Bägh<span class="text-bagheera-red">e</span>erä</h4>
@@ -665,7 +635,7 @@
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP (Visible en toda la web) -->
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
     <div class="fixed bottom-0 w-full p-4 z-50 bg-gradient-to-t from-black via-black/90 to-transparent flex justify-center pb-8 pointer-events-none">
         <a href="https://wa.me/56929612816" target="_blank" class="pointer-events-auto flex items-center gap-3 bg-bagheera-red text-white font-bold text-lg px-8 py-4 rounded-full shadow-[0_0_20px_rgba(227,24,55,0.6)] hover:bg-red-700 hover:scale-105 transition-all duration-300">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.09 1.18 4.79 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.89-9.92-9.89zM12.04 20.15h-.01c-1.5 0-2.96-.4-4.24-1.12l-.3-.18-3.12.82.83-3.04-.2-.32a8.02 8.02 0 01-1.22-4.31c0-4.48 3.63-8.12 8.12-8.12 4.48 0 8.12 3.64 8.12 8.12 0 4.48-3.64 8.12-8.12 8.12zm4.49-5.83c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.79 1s-.29.17-.54.06c-.25-.12-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.42c.08-.17.04-.33-.02-.45s-.56-1.34-.76-1.84c-.2-.5-.4-.43-.55-.43h-.48c-.17 0-.43.06-.66.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.54s1.75 2.67 4.24 3.73c.59.25 1.05.4 1.41.51.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18s.21-1.08.15-1.18c-.07-.1-.25-.16-.5-.28z"/></svg>
@@ -673,19 +643,13 @@
         </a>
     </div>
 
-    <!-- SCRIPT DE NAVEGACIÓN (Convierte tu sitio en una Single Page Application) -->
+    <!-- SCRIPT DE NAVEGACIÓN -->
     <script>
         function switchView(viewName) {
-            // 1. Ocultar todas las vistas
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-            
-            // 2. Mostrar la vista solicitada
             document.getElementById('vista-' + viewName).classList.add('active');
-            
-            // 3. Volver arriba
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // 4. Lógica para el botón "Volver" en móvil
             const btnVolver = document.getElementById('btn-volver');
             if (viewName === 'inicio') {
                 btnVolver.classList.add('hidden');
@@ -694,16 +658,11 @@
             }
         }
 
-        // Función para mover el carrusel de inicio
         function scrollCarousel(direction) {
             const carousel = document.getElementById('quick-access-carousel');
-            // Calcula el scroll en base al ancho visible, o un monto fijo seguro
             const scrollAmount = window.innerWidth > 768 ? 350 : 280; 
             carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
     </script>
 </body>
 </html>
-```
-
-Copia esto, pégalo en GitHub, espera un par de minutos a que se actualice la página y cuéntame si te gusta cómo se ven las estrellitas y los comentarios.
