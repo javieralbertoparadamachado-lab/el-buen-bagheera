@@ -56,7 +56,7 @@
             background-repeat: no-repeat, no-repeat, repeat;
         }
 
-        /* Mandalas en las esquinas - Actualizado */
+        /* Mandalas en las esquinas */
         body::before, body::after {
             content: '';
             position: fixed;
@@ -72,7 +72,7 @@
         body::before { top: -50px; left: -50px; }
         body::after { bottom: -50px; right: -50px; transform: rotate(180deg); }
 
-        /* Estilos comunes para tarjetas (Menú, Promos, Eventos) */
+        /* Estilos comunes para tarjetas */
         .bagheera-card {
             background: linear-gradient(145deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.95) 100%);
             border: 1px solid rgba(220,179,96,0.3);
@@ -220,7 +220,7 @@
                 </div>
             </div>
 
-            <!-- Accesos Rápidos (CARRUSEL) -->
+            <!-- Accesos Rápidos (CARRUSEL ACTUALIZADO) -->
             <div class="py-16 md:py-24 max-w-5xl mx-auto px-6">
                 <div class="text-center mb-12">
                     <h3 class="text-4xl md:text-6xl font-script text-bagheera-gold drop-shadow-md">Descubre el Sabor</h3>
@@ -234,8 +234,9 @@
 
                     <div id="quick-access-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-8 pt-4 hide-scrollbar scroll-smooth">
                         
+                        <!-- Tarjeta Promos -->
                         <div onclick="switchView('promos')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-red/50 bg-[#0a0a0a] hover:border-bagheera-red transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(227,24,55,0.15)] hover:shadow-[0_0_25px_rgba(227,24,55,0.4)]">
-                            <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1529144415895-6aaf8be872fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/shawarmacarne.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Promos</h4>
@@ -243,8 +244,9 @@
                             </div>
                         </div>
 
+                        <!-- Tarjeta Menú -->
                         <div onclick="switchView('menu')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
-                            <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/homemenu.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Menú</h4>
@@ -252,8 +254,9 @@
                             </div>
                         </div>
 
+                        <!-- Tarjeta Catering -->
                         <div onclick="switchView('eventos')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
-                            <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/mesacatering4.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Catering</h4>
@@ -261,14 +264,16 @@
                             </div>
                         </div>
 
+                        <!-- Tarjeta Reseñas -->
                         <div onclick="switchView('testimonios')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
-                            <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/parejaia.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Reseñas</h4>
                                 <span class="mt-2 inline-block text-bagheera-gold font-bold tracking-widest text-sm border-b border-bagheera-gold pb-1 group-hover:pr-2 transition-all">VER OPINIONES &rarr;</span>
                             </div>
                         </div>
+
                     </div>
 
                     <button onclick="scrollCarousel(1)" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 z-20 bg-bagheera-gold text-black p-2 md:p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 shadow-lg hidden md:block hover:scale-110">
@@ -478,7 +483,7 @@
                         
                         <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4">
                             <!-- Foto Mini Shawarmas -->
-                            <img src="shawarmacanape.jpg" alt="Mini Shawarmas" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-bagheera-gold/50 shadow-[0_0_10px_rgba(220,179,96,0.2)]">
+                            <img src="images/shawarmacanape.jpg" alt="Mini Shawarmas" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-bagheera-gold/50 shadow-[0_0_10px_rgba(220,179,96,0.2)]" onerror="this.src='shawarmacanape.jpg'">
                             <div>
                                 <h3 class="text-lg font-bold text-bagheera-gold">Mini Shawarmas</h3>
                                 <p class="text-gray-400 text-sm">Pollo, Carne o Faláfel.</p>
@@ -588,7 +593,7 @@
                     </div>
 
                     <div class="bagheera-card rounded-2xl overflow-hidden break-inside-avoid border-t-4 border-t-bagheera-gold">
-                        <div class="h-56 w-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1529144415895-6aaf8be872fb?q=80&w=800');"></div>
+                        <div class="h-56 w-full bg-cover bg-center" style="background-image: url('images/cateringamigos.jpg');"></div>
                         <div class="p-5 bg-gradient-to-t from-black via-black/90 to-transparent mt-[-60px] relative z-10">
                             <p class="text-white font-semibold italic text-sm">"Listos para nuestro evento. El catering de Bagheera fue un éxito total con mis invitados. Súper puntuales."</p>
                             <span class="text-[10px] text-bagheera-gold font-bold tracking-widest uppercase mt-2 block">Servicio de Catering</span>
