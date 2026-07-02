@@ -1,4 +1,105 @@
-<!-- ... existing code ... -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título Optimizado -->
+    <title>El Buen Bagheera | La Mejor Comida del Oriente Medio en Santiago</title>
+    <meta name="description" content="Nuestros deliciosos Shawarmas, Falafel, Hummus y más. El auténtico sabor de Arabia en Santiago de Chile. ¡Pide tu delivery ahora!">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;600;700&family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Configuración de estilos base -->
+    <style>
+        :root {
+            --color-black: #080808;
+            --color-dark: #121212;
+            --color-gold: #dcb360; 
+            --color-red: #e31837; 
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-black);
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-script { font-family: 'Oleo Script', cursive; }
+
+        .text-bagheera-gold { color: var(--color-gold); }
+        .bg-bagheera-gold { background-color: var(--color-gold); }
+        .border-bagheera-gold { border-color: var(--color-gold); }
+        
+        .text-bagheera-red { color: var(--color-red); }
+        .bg-bagheera-red { background-color: var(--color-red); }
+        .border-bagheera-red { border-color: var(--color-red); }
+
+        /* Fondo unificado para toda la página */
+        .mandala-bg {
+            background-color: var(--color-black);
+            background-image: 
+                linear-gradient(to bottom, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.98) 100%),
+                url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23dcb360' stroke-width='1.5' stroke-opacity='0.08'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z'/%3E%3Cpath d='M15 15 L45 15 L45 45 L15 45 Z'/%3E%3Cpath d='M0 0 L60 60 M60 0 L0 60 M30 0 L30 60 M0 30 L60 30'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover, cover, 70px 70px;
+            background-position: center, center, center;
+            background-attachment: fixed, fixed, fixed;
+        }
+
+        /* Mandalas en las esquinas */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg stroke='%23dcb360' stroke-width='0.5' stroke-opacity='0.15' fill='none'%3E%3Ccircle cx='50' cy='50' r='45'/%3E%3Ccircle cx='50' cy='50' r='35' stroke-dasharray='2,3'/%3E%3Ccircle cx='50' cy='50' r='20'/%3E%3Cpath d='M50 5 Q65 25 50 50 Q35 25 50 5 M95 50 Q75 65 50 50 Q75 35 95 50 M50 95 Q65 75 50 50 Q35 75 50 95 M5 50 Q25 65 50 50 Q25 35 5 50'/%3E%3Cpath d='M18 18 L82 82 M18 82 L82 18' stroke-dasharray='1,2'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: -1;
+            pointer-events: none;
+        }
+        body::before { top: -200px; left: -200px; }
+        body::after { bottom: -200px; right: -200px; transform: rotate(45deg); }
+
+        /* Estilos comunes para tarjetas */
+        .bagheera-card {
+            background: linear-gradient(145deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.95) 100%);
+            border: 1px solid rgba(220,179,96,0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .bagheera-card:hover {
+            border-color: rgba(220,179,96,0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220,179,96,0.15);
+        }
+
+        .price-tag {
+            background-color: var(--color-red);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(227, 24, 55, 0.3);
+            white-space: nowrap;
+        }
+        .price-tag-large {
+            padding: 0.35rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 900;
+            font-size: 1.25rem;
+        }
+
         .dashed-line {
             flex-grow: 1;
             border-bottom: 2px dotted rgba(220,179,96,0.3);
@@ -17,7 +118,44 @@
         }
 
         /* Ocultar secciones para la navegación de una sola página */
-<!-- ... existing code ... -->
+        .view-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="mandala-bg antialiased min-h-screen flex flex-col">
+
+    <!-- HEADER GLOBAL -->
+    <div class="sticky top-0 z-50">
+        <!-- Banner Delivery -->
+        <div class="bg-bagheera-gold text-black text-sm font-bold text-center py-2 px-4 shadow-lg shadow-black/50 tracking-wide uppercase">
+            🛵 Delivery Activo Santiago: <a href="https://wa.me/56929612816" target="_blank" class="underline">+56 9 2961 2816</a>
+        </div>
+
+        <header class="bg-black/95 backdrop-blur-md py-3 px-4 md:px-12 border-b border-bagheera-gold/30">
+            <div class="max-w-6xl mx-auto flex justify-between items-center">
+                
+                <!-- Logo -->
+                <a href="#" onclick="switchView('inicio')" class="flex items-center gap-3 cursor-pointer">
+                    <!-- Placeholder con color acorde al estilo -->
+                    <img src="https://placehold.co/100x100/080808/dcb360?text=Logo" alt="Logo El Buen Bagheera" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_10px_rgba(220,179,96,0.3)]">
+                    <div>
+                        <span class="text-white text-[10px] md:text-xs font-semibold block mb-[-4px] tracking-widest uppercase">el buen</span>
+                        <h1 class="text-xl md:text-2xl font-bold text-white font-cinzel tracking-wider">
+                            Bägh<span class="text-bagheera-red">e</span>erä
+                        </h1>
+                    </div>
+                </a>
+                
                 <!-- Navegación Desktop -->
                 <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wider text-gray-300">
                     <button onclick="switchView('inicio')" class="hover:text-bagheera-gold transition-colors uppercase">Inicio</button>
@@ -28,8 +166,61 @@
                 </nav>
 
                 <a href="https://wa.me/56929612816" target="_blank" class="hidden md:inline-flex items-center gap-2 text-sm font-bold bg-bagheera-red text-white px-5 py-2.5 rounded hover:bg-red-700 transition-colors shadow-[0_0_15px_rgba(227,24,55,0.4)]">
-<!-- ... existing code ... -->
-            <!-- Accesos Rápidos -->
+                    Pedir Ahora
+                </a>
+                
+                <!-- Botón Volver (solo visible en móvil y cuando no es inicio) -->
+                <button id="btn-volver" onclick="switchView('inicio')" class="md:hidden flex items-center gap-1 text-bagheera-gold text-xs font-bold uppercase hidden">
+                    &larr; Volver
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full flex-grow relative z-10">
+
+        <!-- ============================================== -->
+        <!-- VISTA 1: INICIO                                -->
+        <!-- ============================================== -->
+        <section id="vista-inicio" class="view-section active w-full">
+            
+            <!-- Hero Banner -->
+            <div class="relative py-20 md:py-32 text-center border-b border-bagheera-gold/20 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <!-- Imagen de Unsplash para evitar error 404 -->
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Shawarmas" class="w-full h-full object-cover opacity-35">
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black"></div>
+                </div>
+                
+                <div class="relative z-10 max-w-4xl mx-auto px-6">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight font-cinzel">
+                        LA MEJOR COMIDA DEL <br/>
+                        <span class="text-bagheera-gold font-script text-6xl md:text-8xl block mt-4 drop-shadow-[0_0_15px_rgba(220,179,96,0.3)]">Oriente Medio</span>
+                    </h2>
+                    
+                    <p class="mt-8 text-xl md:text-2xl text-white font-bold tracking-widest uppercase">
+                        Nuestros Deliciosos Shawarmas
+                    </p>
+                    <p class="mt-2 text-bagheera-gold font-script text-3xl md:text-4xl">
+                        Falaffel • Pollo • Carne • Mixta • Premium
+                    </p>
+
+                    <div class="mt-12 bg-black/60 border border-bagheera-gold/50 rounded-xl p-6 md:p-8 max-w-2xl mx-auto backdrop-blur-sm inline-block text-left shadow-2xl">
+                        <h3 class="text-white text-xl font-bold tracking-widest mb-4 border-b border-bagheera-gold/30 pb-2">TODOS INCLUYEN:</h3>
+                        <ul class="text-bagheera-gold font-script text-2xl md:text-3xl space-y-2 grid grid-cols-2 gap-x-8">
+                            <li>• Tabuleh</li>
+                            <li>• Hummus</li>
+                            <li>• Pan de la Casa</li>
+                            <li>• Salsas de la Casa</li>
+                            <li>• Lechuga</li>
+                            <li>• Cebolla morada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accesos Rápidos (CARRUSEL) -->
             <div class="py-16 md:py-24 max-w-5xl mx-auto px-6">
                 <div class="text-center mb-12">
                     <h3 class="text-4xl md:text-6xl font-script text-bagheera-gold drop-shadow-md">Descubre el Sabor</h3>
@@ -95,7 +286,226 @@
                 </div>
             </div>
         </section>
-<!-- ... existing code ... -->
+
+        <!-- ============================================== -->
+        <!-- VISTA 2: MENÚ                                  -->
+        <!-- ============================================== -->
+        <section id="vista-menu" class="view-section py-12 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <h1 class="text-6xl md:text-8xl font-script text-bagheera-gold drop-shadow-lg mb-2">Menú</h1>
+                    <p class="text-gray-400 tracking-widest uppercase text-sm md:text-base font-semibold mt-4">Nuestra Carta Completa</p>
+                    <div class="w-24 h-px bg-bagheera-gold mx-auto mt-6 opacity-50"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                    <!-- FRITOS -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-gold">
+                        <h2 class="text-3xl font-script text-bagheera-gold mb-6 border-b border-gray-800 pb-4">Fritos</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Faláfel</h3>
+                                    <div class="dashed-line"></div>
+                                    <div class="flex gap-2">
+                                        <div class="text-right flex flex-col items-center"><span class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Med</span><span class="price-tag">$3.990</span></div>
+                                        <div class="text-right flex flex-col items-center"><span class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Gde</span><span class="price-tag">$6.990</span></div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 text-sm italic">Med: 6 Unidades • Gde: 12 Unidades</p>
+                            </div>
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Faláfel Árabe</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$5.990</span>
+                                </div>
+                                <p class="text-gray-400 text-sm italic">Montaditos con hummus y tabule.</p>
+                            </div>
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Papas Rústicas</h3>
+                                    <div class="dashed-line"></div>
+                                    <div class="flex gap-2">
+                                        <div class="text-right flex flex-col items-center"><span class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Med</span><span class="price-tag">$2.990</span></div>
+                                        <div class="text-right flex flex-col items-center"><span class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Gde</span><span class="price-tag">$4.490</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ENSALADAS -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-gold">
+                        <h2 class="text-3xl font-script text-bagheera-gold mb-2">Ensaladas</h2>
+                        <p class="text-xs text-bagheera-gold/70 tracking-widest uppercase mb-6 border-b border-gray-800 pb-4">(Incluyen salsas y pan)</p>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Tabule</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$3.990</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Fatouch</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$3.990</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">De la Casa</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$4.990</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHAWARMAS -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-red shadow-[0_0_20px_rgba(227,24,55,0.1)] lg:col-span-2 max-w-3xl mx-auto w-full">
+                        <h2 class="text-3xl font-script text-bagheera-gold mb-2 text-center">Shawarmas</h2>
+                        <p class="text-xs text-bagheera-gold/70 tracking-widest uppercase mb-6 border-b border-gray-800 pb-4 text-center">(Incluyen tabule, hummus, salsas, lechuga, cebolla)</p>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Shawarma Simple</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$6.990</span>
+                                </div>
+                                <p class="text-gray-400 text-xs">(1 Proteína)</p>
+                            </div>
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Shawarma Mixto</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$7.990</span>
+                                </div>
+                                <p class="text-gray-400 text-xs">(2 Proteínas)</p>
+                            </div>
+                            <div>
+                                <div class="flex flex-row justify-between items-end mb-1">
+                                    <h3 class="text-xl font-bold text-white tracking-wide">Shawarma Premium</h3>
+                                    <div class="dashed-line"></div>
+                                    <span class="price-tag">$8.990</span>
+                                </div>
+                                <p class="text-gray-400 text-xs">(3 Proteínas)</p>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-gray-800 text-center">
+                            <p class="text-bagheera-gold text-xs font-bold tracking-widest uppercase mb-3">Proteínas: Pollo, Carne, Faláfel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VISTA 3: PROMOS                                -->
+        <!-- ============================================== -->
+        <section id="vista-promos" class="view-section py-12 px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-7xl font-script text-bagheera-gold drop-shadow-lg mb-2">Promos</h1>
+                    <p class="text-gray-400 tracking-widest uppercase text-sm font-semibold">Exclusivas para Delivery</p>
+                    <div class="w-24 h-px bg-bagheera-gold mx-auto mt-6 opacity-50"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Promo 1 -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
+                            <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo Bagheera</h2>
+                            <div class="hidden md:block dashed-line"></div>
+                            <span class="price-tag price-tag-large">$8.990</span>
+                        </div>
+                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-3">
+                            Shawarma (1 proteína) + Papas rústicas medianas + Bebida en lata.
+                        </p>
+                        <p class="text-gray-500 text-xs font-semibold tracking-wider">PROTEÍNAS: POLLO, CARNE O FALÁFEL</p>
+                    </div>
+
+                    <!-- Promo 2 -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
+                            <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo "Uno"</h2>
+                            <div class="hidden md:block dashed-line"></div>
+                            <span class="price-tag price-tag-large">$9.990</span>
+                        </div>
+                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-3">
+                            Shawarma mixto (2 prot) + Papas o Faláfel mediano + Bebida lata.
+                        </p>
+                    </div>
+
+                    <!-- Promo Dúo -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8 relative overflow-hidden border-t-4 border-t-bagheera-gold">
+                        <div class="absolute top-0 right-0 bg-bagheera-gold text-black text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Más Pedida</div>
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4 mt-2">
+                            <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo "Dúo"</h2>
+                            <div class="hidden md:block dashed-line"></div>
+                            <span class="price-tag price-tag-large">$18.990</span>
+                        </div>
+                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-3">
+                            Shawarma premium + Fatouch + Papas med + Faláfel med + 2 Bebidas lata.
+                        </p>
+                    </div>
+
+                    <!-- Promo VIP -->
+                    <div class="bagheera-card rounded-2xl p-6 md:p-8 border-t-4 border-t-bagheera-red">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
+                            <h2 class="text-3xl font-script text-bagheera-gold tracking-wide">Promo "Familiar"</h2>
+                            <div class="hidden md:block dashed-line"></div>
+                            <span class="price-tag price-tag-large">$38.450</span>
+                        </div>
+                        <p class="text-gray-200 text-lg font-light leading-relaxed mb-3">
+                            3 Shawarmas mixtos + Fatouch + Papas + Faláfel + Bebida 1.5L.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VISTA 4: EVENTOS & CATERING                    -->
+        <!-- ============================================== -->
+        <section id="vista-eventos" class="view-section py-12 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-script text-bagheera-gold mb-4">Eventos & Catering</h1>
+                    <div class="bg-bagheera-red inline-block px-6 py-2 rounded-full font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(227,24,55,0.5)] text-sm md:text-base">
+                        SERVICIO DE UN DÍA PARA OTRO
+                    </div>
+                </div>
+
+                <!-- Galería -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+                    <div class="h-48 md:h-64 bg-cover bg-center rounded-xl border border-bagheera-gold/30" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600')"></div>
+                    <div class="h-48 md:h-64 bg-cover bg-center rounded-xl border border-bagheera-gold/30" style="background-image: url('https://images.unsplash.com/photo-1579684385333-f222858804c6?q=80&w=600')"></div>
+                    <div class="h-48 md:h-64 bg-cover bg-center rounded-xl border border-bagheera-gold/30" style="background-image: url('https://images.unsplash.com/photo-1529144415895-6aaf8be872fb?q=80&w=600')"></div>
+                </div>
+
+                <!-- Ofrecemos -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-cinzel text-white text-center mb-10">Lo que ofrecemos</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4">
+                            <span class="text-3xl">🥙</span>
+                            <div>
+                                <h3 class="text-lg font-bold text-bagheera-gold">Mini Shawarmas</h3>
+                                <p class="text-gray-400 text-sm">Pollo, Carne o Faláfel.</p>
+                            </div>
+                        </div>
+                        <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4">
+                            <span class="text-3xl">🧆</span>
+                            <div>
+                                <h3 class="text-lg font-bold text-bagheera-gold">Falafel Crocante</h3>
+                                <p class="text-gray-400 text-sm">Preparación artesanal.</p>
+                            </div>
+                        </div>
+                        <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4 md:col-span-2 justify-center text-center">
                             <div>
                                 <h3 class="text-lg font-bold text-bagheera-gold">Salsas, Hummus y Acompañamientos</h3>
                                 <p class="text-gray-400 text-sm">Recetas exclusivas de la casa.</p>
@@ -223,7 +633,51 @@
         </section>
 
     </main>
-<!-- ... existing code ... -->
+
+    <!-- FOOTER (Visible en todas las vistas) -->
+    <footer class="bg-[#050505] border-t border-bagheera-gold/20 pt-16 pb-32">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
+            <div class="text-center md:text-left flex flex-col md:flex-row items-center gap-4">
+                <!-- Placeholder para el Footer -->
+                <img src="https://placehold.co/150x150/080808/dcb360?text=Logo" alt="Logo" class="w-20 h-20 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_15px_rgba(220,179,96,0.2)]">
+                <div>
+                    <h4 class="text-3xl font-bold text-white font-cinzel tracking-wider">Bägh<span class="text-bagheera-red">e</span>erä</h4>
+                    <p class="text-bagheera-gold font-script text-xl mt-1 tracking-widest uppercase">Arabian Food</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-3">
+                <a href="https://instagram.com/elbuenbagheera" target="_blank" class="flex items-center gap-2 text-gray-300 hover:text-bagheera-gold transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-2.25-8c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm8.205-4.25a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/><path d="M12 7.25a4.75 4.75 0 100 9.5 4.75 4.75 0 000-9.5zm0 7.5a2.75 2.75 0 110-5.5 2.75 2.75 0 010 5.5z"/></svg>
+                    <span>@elbuenbagheera</span>
+                </a>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800">
+            <p class="text-xs text-gray-700">&copy; 2024 El Buen Bagheera. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP (Visible en toda la web) -->
+    <div class="fixed bottom-0 w-full p-4 z-50 bg-gradient-to-t from-black via-black/90 to-transparent flex justify-center pb-8 pointer-events-none">
+        <a href="https://wa.me/56929612816" target="_blank" class="pointer-events-auto flex items-center gap-3 bg-bagheera-red text-white font-bold text-lg px-8 py-4 rounded-full shadow-[0_0_20px_rgba(227,24,55,0.6)] hover:bg-red-700 hover:scale-105 transition-all duration-300">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.09 1.18 4.79 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.89-9.92-9.89zM12.04 20.15h-.01c-1.5 0-2.96-.4-4.24-1.12l-.3-.18-3.12.82.83-3.04-.2-.32a8.02 8.02 0 01-1.22-4.31c0-4.48 3.63-8.12 8.12-8.12 4.48 0 8.12 3.64 8.12 8.12 0 4.48-3.64 8.12-8.12 8.12zm4.49-5.83c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.79 1s-.29.17-.54.06c-.25-.12-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.42c.08-.17.04-.33-.02-.45s-.56-1.34-.76-1.84c-.2-.5-.4-.43-.55-.43h-.48c-.17 0-.43.06-.66.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.54s1.75 2.67 4.24 3.73c.59.25 1.05.4 1.41.51.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18s.21-1.08.15-1.18c-.07-.1-.25-.16-.5-.28z"/></svg>
+            Hacer mi pedido
+        </a>
+    </div>
+
+    <!-- SCRIPT DE NAVEGACIÓN (Convierte tu sitio en una Single Page Application) -->
+    <script>
+        function switchView(viewName) {
+            // 1. Ocultar todas las vistas
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            
+            // 2. Mostrar la vista solicitada
+            document.getElementById('vista-' + viewName).classList.add('active');
+            
+            // 3. Volver arriba
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
             // 4. Lógica para el botón "Volver" en móvil
             const btnVolver = document.getElementById('btn-volver');
             if (viewName === 'inicio') {
@@ -243,3 +697,6 @@
     </script>
 </body>
 </html>
+```
+
+Copia esto, pégalo en GitHub, espera un par de minutos a que se actualice la página y cuéntame si te gusta cómo se ven las estrellitas y los comentarios.
