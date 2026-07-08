@@ -550,7 +550,7 @@
 
                 <!-- CONTENEDOR DINÁMICO DE RESEÑAS -->
                 <div id="reviews-container" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    <!-- Las reseñas se inyectarán aquí con JavaScript cada 2 minutos -->
+                    <!-- Las reseñas se inyectarán aquí con JavaScript -->
                 </div>
             </div>
         </section>
@@ -590,9 +590,9 @@
 
     <!-- SCRIPT DE NAVEGACIÓN Y RESEÑAS DINÁMICAS -->
     <script>
-        // --- MOTOR DE RESEÑAS DINÁMICAS ---
+        // --- MOTOR DE RESEÑAS DINÁMICAS (BANCO DE 20 CLIENTES) ---
         const reviewsPool = [
-            // Las 7 fotos de tus clientes reales
+            // Las 20 fotos de tus clientes reales (o futuras fotos que subas)
             { type: 'image', img: 'images/cliente1.jpg', text: '¡Tremenda calidad! La carne estaba súper jugosa y las porciones son gigantes. 100% recomendado.', rating: '★★★★★', tag: 'Delivery' },
             { type: 'image', img: 'images/cliente2.jpg', text: 'Primera vez probando y me voló la cabeza. El pan de la casa hace toda la diferencia.', rating: '★★★★★', tag: 'Delivery' },
             { type: 'image', img: 'images/cliente3.jpg', text: 'Los contratamos para el catering de mi cumpleaños y todos mis invitados quedaron fascinados. Un 7.', rating: '★★★★★', tag: 'Catering' },
@@ -600,10 +600,24 @@
             { type: 'image', img: 'images/cliente5.jpg', text: 'El mejor falafel que he comido en Santiago, súper crujiente y con un sabor muy auténtico.', rating: '★★★★★', tag: 'Retiro en local' },
             { type: 'image', img: 'images/cliente6.jpg', text: 'Excelente presentación y el hummus es un manjar de los dioses. Se ganaron una cliente fiel.', rating: '★★★★★', tag: 'Delivery' },
             { type: 'image', img: 'images/cliente7.jpg', text: 'Mis respetos al chef. Sabores árabes reales y la atención por WhatsApp fue súper amable.', rating: '★★★★★', tag: 'Delivery' },
-            
+            { type: 'image', img: 'images/cliente8.jpg', text: 'Llegó rapidísimo. Se nota que los ingredientes son frescos y de muy buena calidad.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente9.jpg', text: 'El tabuleh es exactamente como lo preparaba mi abuela. Tienen muy buena mano.', rating: '★★★★★', tag: 'Retiro en local' },
+            { type: 'image', img: 'images/cliente10.jpg', text: 'Pedí la Promo Familiar y todos en casa quedamos llenísimos. Súper abundante y rico.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente11.jpg', text: 'La atención por WhatsApp es un 10. Y la comida llegó perfecta, muy bien empacada.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente12.jpg', text: 'Me encanta que tengan opciones vegetarianas tan ricas. El falafel es mi favorito lejos.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente13.jpg', text: 'Se nota el cariño en la preparación. Las verduras crujientes y la carne en su punto exacto.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente14.jpg', text: '¡Qué descubrimiento! La salsa de la casa es una adicción. Pediremos de nuevo sí o sí.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente15.jpg', text: 'El pan pita es suavecito y fresco, nada seco. Un shawarma mixto increíble.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente16.jpg', text: 'Hicieron el catering para la oficina y todos los colegas preguntaron de dónde era.', rating: '★★★★★', tag: 'Catering' },
+            { type: 'image', img: 'images/cliente17.jpg', text: 'Llegó antes del tiempo estimado y calientito. Un lujo tener este nivel de servicio.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente18.jpg', text: 'Las porciones de papas rústicas son súper generosas. Muy buena relación precio-calidad.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente19.jpg', text: 'Definitivamente el mejor bajón de Santiago. Siempre salvan las juntas del fin de semana.', rating: '★★★★★', tag: 'Delivery' },
+            { type: 'image', img: 'images/cliente20.jpg', text: 'Impecable. Sabores equilibrados, nada grasoso. Lo recomiendo a ojos cerrados.', rating: '★★★★★', tag: 'Delivery' },
+
             // Mensajes tipo WhatsApp
             { type: 'whatsapp', text1: 'Hola!! Acaba de llegar el pedido. Demasiado rico todo, mi familia quedó fascinada 😍🤤 Gracias!!', time1: '20:45', text2: '¡Qué alegría leer eso! Muchas gracias por preferirnos. ❤️', time2: '20:47' },
             { type: 'whatsapp', text1: 'Chicos se pasaron con el catering, todos preguntando por ustedes 👏', time1: '15:20', text2: 'Qué bueno que lo disfrutaron!! Esa es la idea 🙌', time2: '15:25' },
+            { type: 'whatsapp', text1: 'Hola, quería felicitarlos. El shawarma mixto estaba buenísimo, la carne súper blandita.', time1: '13:15', text2: 'Hola! Muchas gracias por tu mensaje, nos motiva mucho 💪', time2: '13:20' },
             
             // Reseñas de texto
             { type: 'text', name: 'María G.', initial: 'M', color: 'bg-bagheera-gold text-black', typeUser: 'Cliente Frecuente', text: '"¡El mejor shawarma que he probado en Santiago! Las salsas son increíbles, el hummus es una locura y la porción es gigante."', rating: '★★★★★' },
@@ -611,49 +625,45 @@
             { type: 'text', name: 'Andrea F.', initial: 'A', color: 'bg-gray-700 text-white', typeUser: 'Cliente Frecuente', text: '"Llega calientito y el pan de la casa es espectacular. Ya es nuestra cena fija de los viernes."', rating: '★★★★★' }
         ];
 
-        function updateReviews() {
-            const container = document.getElementById('reviews-container');
-            container.innerHTML = ''; 
+        let currentReviews = [];
+        const container = document.getElementById('reviews-container');
 
-            // Mezclar al azar y tomar 6
-            const shuffled = reviewsPool.sort(() => 0.5 - Math.random());
-            const selected = shuffled.slice(0, 6);
-
-            selected.forEach(rev => {
-                let html = '';
-                if (rev.type === 'image') {
-                    html = `
-                    <div class="bagheera-card rounded-2xl overflow-hidden break-inside-avoid border-t-4 border-t-bagheera-gold review-animate">
-                        <img src="${rev.img}" onerror="this.src='https://placehold.co/600x400/121212/dcb360?text=Foto+En+Camino'" alt="Foto Cliente" class="h-48 w-full object-cover">
-                        <div class="p-5">
-                            <p class="text-white font-semibold italic text-sm">"${rev.text}"</p>
-                            <div class="mt-3 flex items-center justify-between border-t border-gray-800 pt-3">
-                                <span class="text-bagheera-gold text-sm tracking-widest">${rev.rating}</span>
-                                <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">${rev.tag}</span>
-                            </div>
+        // Función para generar el HTML de una tarjeta
+        function generateReviewHTML(rev) {
+            if (rev.type === 'image') {
+                return `
+                <div class="bagheera-card rounded-2xl overflow-hidden border-t-4 border-t-bagheera-gold shadow-lg h-full flex flex-col">
+                    <img src="${rev.img}" onerror="this.src='https://placehold.co/600x400/121212/dcb360?text=Foto+En+Camino'" alt="Foto Cliente" class="h-48 w-full object-cover">
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <p class="text-white font-semibold italic text-sm">"${rev.text}"</p>
+                        <div class="mt-3 flex items-center justify-between border-t border-gray-800 pt-3">
+                            <span class="text-bagheera-gold text-sm tracking-widest">${rev.rating}</span>
+                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">${rev.tag}</span>
                         </div>
-                    </div>`;
-                } else if (rev.type === 'whatsapp') {
-                    html = `
-                    <div class="bagheera-card p-6 rounded-2xl border-t-4 border-t-[#25D366] break-inside-avoid shadow-[0_0_15px_rgba(37,211,102,0.1)] review-animate">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2">
-                                <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.09 1.18 4.79 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.89-9.92-9.89zm4.49 14.32c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.79 1s-.29.17-.54.06c-.25-.12-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.42c.08-.17.04-.33-.02-.45s-.56-1.34-.76-1.84c-.2-.5-.4-.43-.55-.43h-.48c-.17 0-.43.06-.66.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.54s1.75 2.67 4.24 3.73c.59.25 1.05.4 1.41.51.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18s.21-1.08.15-1.18c-.07-.1-.25-.16-.5-.28z"/></svg>
-                                Mensaje de Cliente
-                            </h4>
-                        </div>
-                        <div class="bg-[#0b141a] p-3 rounded-lg rounded-tl-none relative mb-2 w-11/12 border border-gray-800">
-                            <p class="text-[#e9edef] text-sm">${rev.text1}</p>
-                            <span class="text-[#8696a0] text-[10px] block text-right mt-1">${rev.time1} <span class="text-[#53bdeb]">✓✓</span></span>
-                        </div>
-                        <div class="bg-[#005c4b] p-3 rounded-lg rounded-tr-none relative ml-auto w-10/12 border border-[#005c4b]">
-                            <p class="text-[#e9edef] text-sm">${rev.text2}</p>
-                            <span class="text-[#8696a0] text-[10px] block text-right mt-1">${rev.time2} <span class="text-[#53bdeb]">✓✓</span></span>
-                        </div>
-                    </div>`;
-                } else if (rev.type === 'text') {
-                    html = `
-                    <div class="bagheera-card p-6 rounded-2xl break-inside-avoid review-animate">
+                    </div>
+                </div>`;
+            } else if (rev.type === 'whatsapp') {
+                return `
+                <div class="bagheera-card p-6 rounded-2xl border-t-4 border-t-[#25D366] shadow-[0_0_15px_rgba(37,211,102,0.1)] h-full">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+                            <svg class="w-5 h-5 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 12c0 1.77.46 3.45 1.28 4.95L2 22l5.25-1.38c1.45.77 3.09 1.18 4.79 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.89-9.92-9.89zm4.49 14.32c-.25-.12-1.47-.72-1.7-.82s-.39-.12-.56.12c-.17.25-.64.82-.79 1s-.29.17-.54.06c-.25-.12-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.42c.08-.17.04-.33-.02-.45s-.56-1.34-.76-1.84c-.2-.5-.4-.43-.55-.43h-.48c-.17 0-.43.06-.66.31s-.86.84-.86 2.05c0 1.21.88 2.37 1 2.54s1.75 2.67 4.24 3.73c.59.25 1.05.4 1.41.51.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18s.21-1.08.15-1.18c-.07-.1-.25-.16-.5-.28z"/></svg>
+                            Mensaje de Cliente
+                        </h4>
+                    </div>
+                    <div class="bg-[#0b141a] p-3 rounded-lg rounded-tl-none relative mb-2 w-11/12 border border-gray-800">
+                        <p class="text-[#e9edef] text-sm">${rev.text1}</p>
+                        <span class="text-[#8696a0] text-[10px] block text-right mt-1">${rev.time1} <span class="text-[#53bdeb]">✓✓</span></span>
+                    </div>
+                    <div class="bg-[#005c4b] p-3 rounded-lg rounded-tr-none relative ml-auto w-10/12 border border-[#005c4b]">
+                        <p class="text-[#e9edef] text-sm">${rev.text2}</p>
+                        <span class="text-[#8696a0] text-[10px] block text-right mt-1">${rev.time2} <span class="text-[#53bdeb]">✓✓</span></span>
+                    </div>
+                </div>`;
+            } else if (rev.type === 'text') {
+                return `
+                <div class="bagheera-card p-6 rounded-2xl h-full flex flex-col justify-between">
+                    <div>
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-full ${rev.color} flex items-center justify-center font-bold text-xl">${rev.initial}</div>
                             <div>
@@ -662,17 +672,59 @@
                             </div>
                         </div>
                         <p class="text-gray-300 italic mb-3 text-sm">${rev.text}</p>
-                        <div class="text-bagheera-gold text-sm tracking-widest">${rev.rating}</div>
-                    </div>`;
-                }
-                container.innerHTML += html;
+                    </div>
+                    <div class="text-bagheera-gold text-sm tracking-widest">${rev.rating}</div>
+                </div>`;
+            }
+        }
+
+        // Cargar las primeras 6 tarjetas al abrir la página
+        function initReviews() {
+            container.innerHTML = '';
+            const shuffled = reviewsPool.sort(() => 0.5 - Math.random());
+            currentReviews = shuffled.slice(0, 6);
+
+            currentReviews.forEach((rev, index) => {
+                const cardWrap = document.createElement('div');
+                cardWrap.id = `review-slot-${index}`;
+                // Añadimos clases para el desvanecimiento suave
+                cardWrap.className = 'break-inside-avoid transition-opacity duration-700 ease-in-out opacity-0';
+                cardWrap.innerHTML = generateReviewHTML(rev);
+                container.appendChild(cardWrap);
+
+                setTimeout(() => {
+                    cardWrap.classList.remove('opacity-0');
+                }, index * 150);
             });
         }
 
-        // Iniciar las reseñas apenas carga la página
-        updateReviews();
-        // Cambiar las reseñas cada 2 minutos (120000 milisegundos)
-        setInterval(updateReviews, 120000); 
+        // MOTOR SUTIL: Cambiar solo UNA reseña al azar cada 15 segundos
+        function rotateOneReview() {
+            const availableReviews = reviewsPool.filter(r => !currentReviews.includes(r));
+            if(availableReviews.length === 0) return; 
+            
+            const newRev = availableReviews[Math.floor(Math.random() * availableReviews.length)];
+            const slotIndex = Math.floor(Math.random() * 6);
+            const slotEl = document.getElementById(`review-slot-${slotIndex}`);
+            
+            if(slotEl) {
+                // 1. Desvanecer la tarjeta
+                slotEl.classList.add('opacity-0');
+                
+                // 2. Cambiar contenido mientras es invisible
+                setTimeout(() => {
+                    currentReviews[slotIndex] = newRev;
+                    slotEl.innerHTML = generateReviewHTML(newRev);
+                    
+                    // 3. Volver a aparecer con el cliente nuevo
+                    slotEl.classList.remove('opacity-0');
+                }, 700);
+            }
+        }
+
+        // Arrancar funciones
+        initReviews();
+        setInterval(rotateOneReview, 15000); 
 
         // --- NAVEGACIÓN ---
         function switchView(viewName) {
