@@ -30,6 +30,7 @@
             background-color: var(--color-black);
             color: #ffffff;
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Evita scroll horizontal no deseado */
         }
 
         .font-cinzel { font-family: 'Cinzel', serif; }
@@ -122,15 +123,18 @@
         /* Ocultar secciones para la navegación de una sola página */
         .view-section {
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            /* CAMBIO: Animación de deslizamiento hacia la izquierda */
+            animation: slideLeft 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            opacity: 0;
         }
         .view-section.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Nueva animación de inercia hacia la izquierda */
+        @keyframes slideLeft {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         /* Animación para actualizar reseñas dinámicamente */
@@ -157,7 +161,7 @@
                 
                 <!-- Logo -->
                 <a href="#" onclick="switchView('inicio')" class="flex items-center gap-3 cursor-pointer">
-                    <img src="images/logonegro.jpg" alt="Logo El Buen Bagheera" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_10px_rgba(220,179,96,0.3)]">
+                    <img src="https://placehold.co/100x100/080808/dcb360?text=Logo" alt="Logo El Buen Bagheera" class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_10px_rgba(220,179,96,0.3)]">
                     <div>
                         <span class="text-white text-[10px] md:text-xs font-semibold block mb-[-4px] tracking-widest uppercase">el buen</span>
                         <h1 class="text-xl md:text-2xl font-bold text-white font-cinzel tracking-wider">
@@ -245,7 +249,7 @@
                         
                         <!-- Tarjeta Promos -->
                         <div onclick="switchView('promos')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-red/50 bg-[#0a0a0a] hover:border-bagheera-red transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(227,24,55,0.15)] hover:shadow-[0_0_25px_rgba(227,24,55,0.4)]">
-                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/shawarmacarne.jpg')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-[url('images/shawarmacarne.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Promos</h4>
@@ -255,7 +259,7 @@
 
                         <!-- Tarjeta Menú -->
                         <div onclick="switchView('menu')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
-                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/homemenu.jpg')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-[url('images/homemenu.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Menú</h4>
@@ -265,7 +269,7 @@
 
                         <!-- Tarjeta Catering -->
                         <div onclick="switchView('eventos')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
-                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/mesacatering4.jpg')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-[url('images/mesacatering4.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Catering</h4>
@@ -275,7 +279,7 @@
 
                         <!-- Tarjeta Reseñas -->
                         <div onclick="switchView('testimonios')" class="min-w-[80vw] md:min-w-[300px] flex-none snap-center cursor-pointer group block relative overflow-hidden rounded-2xl border-2 border-bagheera-gold/50 bg-[#0a0a0a] hover:border-bagheera-gold transition-all duration-300 hover:-translate-y-2 shadow-[0_0_15px_rgba(220,179,96,0.15)] hover:shadow-[0_0_25px_rgba(220,179,96,0.4)]">
-                            <div class="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity bg-[url('images/parejaia.jpg')] bg-cover bg-center"></div>
+                            <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity bg-[url('images/parejaia.jpg')] bg-cover bg-center"></div>
                             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
                             <div class="relative p-8 flex flex-col items-center text-center h-full justify-end min-h-[250px]">
                                 <h4 class="text-3xl font-script text-white mb-2">Reseñas</h4>
@@ -492,7 +496,7 @@
                         
                         <div class="bagheera-card p-6 rounded-2xl flex items-center gap-4">
                             <!-- Foto Mini Shawarmas -->
-                            <img src="shawarmacanape.jpg" alt="Mini Shawarmas" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-bagheera-gold/50 shadow-[0_0_10px_rgba(220,179,96,0.2)]">
+                            <img src="shawarmacanape.jpg" onerror="this.src='images/shawarmacanape.jpg'" alt="Mini Shawarmas" class="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-bagheera-gold/50 shadow-[0_0_10px_rgba(220,179,96,0.2)]">
                             <div>
                                 <h3 class="text-lg font-bold text-bagheera-gold">Mini Shawarmas</h3>
                                 <p class="text-gray-400 text-sm">Pollo, Carne o Faláfel.</p>
@@ -521,7 +525,7 @@
         </section>
 
         <!-- ============================================== -->
-        <!-- VISTA 5: TESTIMONIOS (AHORA DINÁMICOS)         -->
+        <!-- VISTA 5: TESTIMONIOS                           -->
         <!-- ============================================== -->
         <section id="vista-testimonios" class="view-section py-12 px-4">
             <div class="max-w-6xl mx-auto">
@@ -561,7 +565,7 @@
     <footer class="bg-[#050505] border-t border-bagheera-gold/20 pt-16 pb-32">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
             <div class="text-center md:text-left flex flex-col md:flex-row items-center gap-4">
-                <img src="images/logonegro.jpg" alt="Logo" class="w-20 h-20 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_15px_rgba(220,179,96,0.2)]">
+                <img src="https://placehold.co/150x150/080808/dcb360?text=Logo" alt="Logo" class="w-20 h-20 rounded-full border-2 border-bagheera-gold object-cover shadow-[0_0_15px_rgba(220,179,96,0.2)]">
                 <div>
                     <h4 class="text-3xl font-bold text-white font-cinzel tracking-wider">Bägh<span class="text-bagheera-red">e</span>erä</h4>
                     <p class="text-bagheera-gold font-script text-xl mt-1 tracking-widest uppercase">Arabian Food</p>
@@ -745,6 +749,20 @@
             const scrollAmount = window.innerWidth > 768 ? 350 : 280; 
             carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
+
+        // --- ANIMACIÓN DE NUDGE (PISTA DE SCROLL) ---
+        // Hace un pequeño movimiento en el carrusel de inicio para indicar que se puede deslizar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const carousel = document.getElementById('quick-access-carousel');
+                if(carousel) {
+                    carousel.scrollBy({ left: 60, behavior: 'smooth' });
+                    setTimeout(() => {
+                        carousel.scrollBy({ left: -60, behavior: 'smooth' });
+                    }, 600); // Se devuelve después de medio segundo
+                }
+            }, 1500); // Ocurre 1.5 segundos después de entrar a la página
+        });
     </script>
 </body>
 </html>
